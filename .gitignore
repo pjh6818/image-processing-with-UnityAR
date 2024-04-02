@@ -74,3 +74,4 @@ crashlytics-build.properties
 .vscode
 *.framework
 .DS_Store
+build_BurstDebugInformation_DoNotShip/
