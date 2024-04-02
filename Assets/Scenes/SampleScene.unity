@@ -1270,6 +1270,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 331264289}
+    - targetCorrespondingSourceObject: {fileID: 2512387469002778309, guid: 48cb3fb68c91eb94999fd99957eb0cae,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 331264296}
   m_SourcePrefab: {fileID: 100100000, guid: 48cb3fb68c91eb94999fd99957eb0cae, type: 3}
 --- !u!114 &331264286 stripped
 MonoBehaviour:
@@ -1318,6 +1322,19 @@ MonoBehaviour:
   m_EnvironmentDepthMode: 1
   m_EnvironmentDepthTemporalSmoothing: 1
   m_OcclusionPreferenceMode: 0
+--- !u!114 &331264296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331264287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85504586edcef449d818fda851ee3938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CameraManager: {fileID: 331264288}
 --- !u!1 &332374253
 GameObject:
   m_ObjectHideFlags: 0
@@ -5140,10 +5157,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1160436277}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 295346849af224594990733a6a45c8bb, type: 3}
+  m_Script: {fileID: 11500000, guid: 7707b4fd3a6264c34915a7b06fce283c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CameraManager: {fileID: 331264288}
+  m_ArCameraImage: {fileID: 331264296}
   m_RawCameraImage: {fileID: 73400816}
   m_ProcessButton: {fileID: 741400948}
 --- !u!4 &1160436279
