@@ -1,0 +1,743 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		89EF38CC9D544AC098F538F7 /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 8160406B926449EC879C0773 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				A3A830F7C5524E9FA47B5F60 /* Generate CMakeFiles/ALL_BUILD */,
+			);
+			dependencies = (
+				2E26BE0263D14901AFE4CA49 /* PBXTargetDependency */,
+				CAA8E17CCE524C0D83E30804 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+		BFA4EFF7873C4E53BD9AAC6E /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 9523FD0F566F4C41B8F19D7E /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				923BDCB6A63A5D94E97800D2 /* Generate CMakeFiles/ZERO_CHECK */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		041CA0F0DD9E45D2A897A1D1 /* /Users/pjh/Desktop/Unity/Image processing in AR/cpp/ImageProcess.hpp */ = {isa = PBXBuildFile; fileRef = 1D8CE5E186304CAB80DF7BCA /* /Users/pjh/Desktop/Unity/Image processing in AR/cpp/ImageProcess.hpp */; };
+		44A2D5482A9B415E8B69F528 /* /Users/pjh/Desktop/Unity/Image processing in AR/cpp/ImageProcess.cpp */ = {isa = PBXBuildFile; fileRef = E6D64586562A4AF0A5591168 /* /Users/pjh/Desktop/Unity/Image processing in AR/cpp/ImageProcess.cpp */; };
+		AFAB988C527B4DE0A3FAC7DF /* /Users/pjh/Desktop/Unity/Image processing in AR/cpp/build/CMakeFiles/Improc.dir/Info.plist */ = {isa = PBXBuildFile; fileRef = A5122BB3F0B84F3F8C5C4129 /* /Users/pjh/Desktop/Unity/Image processing in AR/cpp/build/CMakeFiles/Improc.dir/Info.plist */; };
+		D73DD71200F5498EA16695CF /* /Users/pjh/Desktop/Unity/Image processing in AR/cpp/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 9FA88AF0E0B647228D915C82 /* /Users/pjh/Desktop/Unity/Image processing in AR/cpp/CMakeLists.txt */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		0C360FFAC8AB49C2A29DCE8D /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+		24A9029E5F4F4102AE09EACC /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+		C88C5A1ACFF54394A865FF76 /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		F33759140F3940B6A305C2AD /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		1620921C09E94DAF9E786E17 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29D7567B73E94E4484A36E7A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C96CE58ABA54EEA958BFCC3;
+			remoteInfo = Improc;
+		};
+		734BBCFF148F46CF8838A354 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29D7567B73E94E4484A36E7A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BFA4EFF7873C4E53BD9AAC6E;
+			remoteInfo = ZERO_CHECK;
+		};
+		EDF9F9ABA66D40EB97F99DCC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29D7567B73E94E4484A36E7A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BFA4EFF7873C4E53BD9AAC6E;
+			remoteInfo = ZERO_CHECK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1D8CE5E186304CAB80DF7BCA /* /Users/pjh/Desktop/Unity/Image processing in AR/cpp/ImageProcess.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = ImageProcess.hpp; path = ImageProcess.hpp; sourceTree = SOURCE_ROOT; };
+		822EB866F8FD406992495278 /* /Users/pjh/Desktop/Unity/Image processing in AR/cpp/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		9FA88AF0E0B647228D915C82 /* /Users/pjh/Desktop/Unity/Image processing in AR/cpp/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		A5122BB3F0B84F3F8C5C4129 /* /Users/pjh/Desktop/Unity/Image processing in AR/cpp/build/CMakeFiles/Improc.dir/Info.plist */ = {isa = PBXFileReference; explicitFileType = sourcecode.text.plist; fileEncoding = 4; name = Info.plist; path = build/CMakeFiles/Improc.dir/Info.plist; sourceTree = SOURCE_ROOT; };
+		E4D3D5C940F94719B33BFA58 /* Improc */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libImproc.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6D64586562A4AF0A5591168 /* /Users/pjh/Desktop/Unity/Image processing in AR/cpp/ImageProcess.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ImageProcess.cpp; path = ImageProcess.cpp; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		720ACDFF083C44D1B33F2D4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		229C54F58635403D9E8AD0B1 /* Improc */ = {
+			isa = PBXGroup;
+			children = (
+				459135CCD731427FBFD7D925 /* Source Files */,
+				A3A500DA7D804CE49AF35354 /* Header Files */,
+				4223A116B2C9445FB53909AA /* Resources */,
+				9FA88AF0E0B647228D915C82 /* /Users/pjh/Desktop/Unity/Image processing in AR/cpp/CMakeLists.txt */,
+			);
+			name = Improc;
+			sourceTree = "<group>";
+		};
+		4223A116B2C9445FB53909AA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A5122BB3F0B84F3F8C5C4129 /* /Users/pjh/Desktop/Unity/Image processing in AR/cpp/build/CMakeFiles/Improc.dir/Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		459135CCD731427FBFD7D925 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				E6D64586562A4AF0A5591168 /* /Users/pjh/Desktop/Unity/Image processing in AR/cpp/ImageProcess.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		48AB19E1EFBA4A1B81A64A0E /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		4E6536F146FE4FDDA958E361 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5B1982B04AB24E9C94834D14 = {
+			isa = PBXGroup;
+			children = (
+				229C54F58635403D9E8AD0B1 /* Improc */,
+				B6F586F737EB48C5B5E089CA /* ALL_BUILD */,
+				A716B3D7916E4854B1B3A5E8 /* Products */,
+				4E6536F146FE4FDDA958E361 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A3A500DA7D804CE49AF35354 /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				1D8CE5E186304CAB80DF7BCA /* /Users/pjh/Desktop/Unity/Image processing in AR/cpp/ImageProcess.hpp */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		A716B3D7916E4854B1B3A5E8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E4D3D5C940F94719B33BFA58 /* Improc */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B6F586F737EB48C5B5E089CA /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				48AB19E1EFBA4A1B81A64A0E /* CMake Rules */,
+				822EB866F8FD406992495278 /* /Users/pjh/Desktop/Unity/Image processing in AR/cpp/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9C96CE58ABA54EEA958BFCC3 /* Improc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A024176C6AC492D957CA9A3 /* Build configuration list for PBXNativeTarget "Improc" */;
+			buildPhases = (
+				F5100FCA6CE54EDCBD87DD72 /* Sources */,
+				720ACDFF083C44D1B33F2D4D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2A7B3438E36D498F941F3988 /* PBXTargetDependency */,
+			);
+			name = Improc;
+			productName = Improc;
+			productReference = E4D3D5C940F94719B33BFA58 /* Improc */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29D7567B73E94E4484A36E7A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1530;
+			};
+			buildConfigurationList = 6A0C443174A74286BBAE48A4 /* Build configuration list for PBXProject "ImageProcessing" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				C88C5A1ACFF54394A865FF76 /* Debug */,
+				24A9029E5F4F4102AE09EACC /* Release */,
+				0C360FFAC8AB49C2A29DCE8D /* MinSizeRel */,
+				F33759140F3940B6A305C2AD /* RelWithDebInfo */,
+			);
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = 5B1982B04AB24E9C94834D14;
+			projectDirPath = "/Users/pjh/Desktop/Unity/Image processing in AR/cpp";
+			projectRoot = "";
+			targets = (
+				89EF38CC9D544AC098F538F7 /* ALL_BUILD */,
+				9C96CE58ABA54EEA958BFCC3 /* Improc */,
+				BFA4EFF7873C4E53BD9AAC6E /* ZERO_CHECK */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C0110FC8322DE7E50886E21 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		923BDCB6A63A5D94E97800D2 /* Generate CMakeFiles/ZERO_CHECK */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate CMakeFiles/ZERO_CHECK";
+			outputPaths = (
+"/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build/CMakeFiles/ZERO_CHECK"			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd \"/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build\"
+  make -f /Users/pjh/Desktop/Unity/Image\\ processing\\ in\\ AR/cpp/build/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd \"/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build\"
+  make -f /Users/pjh/Desktop/Unity/Image\\ processing\\ in\\ AR/cpp/build/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd \"/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build\"
+  make -f /Users/pjh/Desktop/Unity/Image\\ processing\\ in\\ AR/cpp/build/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd \"/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build\"
+  make -f /Users/pjh/Desktop/Unity/Image\\ processing\\ in\\ AR/cpp/build/CMakeScripts/ReRunCMake.make
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		9B50530E35CC49C82C2FACCF = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		A3A830F7C5524E9FA47B5F60 /* Generate CMakeFiles/ALL_BUILD */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate CMakeFiles/ALL_BUILD";
+			outputPaths = (
+"/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build/CMakeFiles/ALL_BUILD"			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd \"/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build\"
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd \"/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build\"
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd \"/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build\"
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd \"/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build\"
+  echo Build\\ all\\ projects
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F5100FCA6CE54EDCBD87DD72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44A2D5482A9B415E8B69F528 /* /Users/pjh/Desktop/Unity/Image processing in AR/cpp/ImageProcess.cpp */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2A7B3438E36D498F941F3988 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BFA4EFF7873C4E53BD9AAC6E /* ZERO_CHECK */;
+			targetProxy = EDF9F9ABA66D40EB97F99DCC /* PBXContainerItemProxy */;
+		};
+		2E26BE0263D14901AFE4CA49 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C96CE58ABA54EEA958BFCC3 /* Improc */;
+			targetProxy = 1620921C09E94DAF9E786E17 /* PBXContainerItemProxy */;
+		};
+		CAA8E17CCE524C0D83E30804 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BFA4EFF7873C4E53BD9AAC6E /* ZERO_CHECK */;
+			targetProxy = 734BBCFF148F46CF8838A354 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		02D1663107404A3395B7F72D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build/lib/Debug";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				FRAMEWORK_SEARCH_PATHS = ("\"/Users/pjh/Desktop/Unity/Image processing in AR/cpp\"","$(inherited)");
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = " -pthread -fPIC    '-std=gnu++17' ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Improc;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build/build/Improc.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		02F104B5655A4CA0B597F7A6 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build/lib/MinSizeRel";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				FRAMEWORK_SEARCH_PATHS = ("\"/Users/pjh/Desktop/Unity/Image processing in AR/cpp\"","$(inherited)");
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = " -pthread -fPIC     -DNDEBUG '-std=gnu++17' ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Improc;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build/build/Improc.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		09B7B4BD36AF44DA965F24F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		143F0A8D1E6C4ECFA7B306AF /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		21A327EE4A6B4CF6BF18A006 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SYMROOT = "/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build/build";
+			};
+			name = RelWithDebInfo;
+		};
+		2EF4902A07D8437385DC55F7 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		3711C32EF1A049FEB13F51BE /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		43C977D9B6304BE9B4D6FB3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		4C3DAE96062A462BA21CB732 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SYMROOT = "/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build/build";
+			};
+			name = MinSizeRel;
+		};
+		7CFF4272668C4D13B693E79B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				SDKROOT = iphoneos;
+				SYMROOT = "/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build/build";
+			};
+			name = Debug;
+		};
+		8F5AA2F532F34543932BA381 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		B9A8E866D70048A38AB1E36E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SYMROOT = "/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build/build";
+			};
+			name = Release;
+		};
+		BA8E5DF0831E4CC8BDCF89FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build/lib/Release";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				FRAMEWORK_SEARCH_PATHS = ("\"/Users/pjh/Desktop/Unity/Image processing in AR/cpp\"","$(inherited)");
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = " -pthread -fPIC     -DNDEBUG '-std=gnu++17' ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Improc;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build/build/Improc.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		DA0E8011286B4BD3A24295C9 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build/lib/RelWithDebInfo";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				FRAMEWORK_SEARCH_PATHS = ("\"/Users/pjh/Desktop/Unity/Image processing in AR/cpp\"","$(inherited)");
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = " -pthread -fPIC        -DNDEBUG '-std=gnu++17' ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Improc;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build/build/Improc.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		EE12C4CABA0446A0A8297933 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		F320408D0F4044EFA440203A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6A0C443174A74286BBAE48A4 /* Build configuration list for PBXProject "ImageProcessing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7CFF4272668C4D13B693E79B /* Debug */,
+				B9A8E866D70048A38AB1E36E /* Release */,
+				4C3DAE96062A462BA21CB732 /* MinSizeRel */,
+				21A327EE4A6B4CF6BF18A006 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8160406B926449EC879C0773 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F320408D0F4044EFA440203A /* Debug */,
+				09B7B4BD36AF44DA965F24F6 /* Release */,
+				2EF4902A07D8437385DC55F7 /* MinSizeRel */,
+				EE12C4CABA0446A0A8297933 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8A024176C6AC492D957CA9A3 /* Build configuration list for PBXNativeTarget "Improc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02D1663107404A3395B7F72D /* Debug */,
+				BA8E5DF0831E4CC8BDCF89FD /* Release */,
+				02F104B5655A4CA0B597F7A6 /* MinSizeRel */,
+				DA0E8011286B4BD3A24295C9 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9523FD0F566F4C41B8F19D7E /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43C977D9B6304BE9B4D6FB3E /* Debug */,
+				8F5AA2F532F34543932BA381 /* Release */,
+				143F0A8D1E6C4ECFA7B306AF /* MinSizeRel */,
+				3711C32EF1A049FEB13F51BE /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29D7567B73E94E4484A36E7A /* Project object */;
+}
