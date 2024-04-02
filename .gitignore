@@ -75,3 +75,4 @@ crashlytics-build.properties
 *.framework
 .DS_Store
 build_BurstDebugInformation_DoNotShip/
+cpp/build/

@@ -1,3 +1,0 @@
-/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build/CMakeFiles/Improc.dir
-/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build/CMakeFiles/ALL_BUILD.dir
-/Users/pjh/Desktop/Unity/Image processing in AR/cpp/build/CMakeFiles/ZERO_CHECK.dir

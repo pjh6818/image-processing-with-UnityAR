@@ -1,4 +1,0 @@
-Target dependency graph (2 targets)
-Target 'Improc' in project 'ImageProcessing'
-➜ Explicit dependency on target 'ZERO_CHECK' in project 'ImageProcessing'
-Target 'ZERO_CHECK' in project 'ImageProcessing' (no dependencies)
