@@ -17,6 +17,14 @@ file(GLOB SRC_FILES CONFIGURE_DEPENDS
   ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/*.hpp
 )
-add_library(Improc STATIC ${SRC_FILES})
-target_include_directories(Improc PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/opencv2.framework)
+
+if (APPLE AND ${CMAKE_SYSTEM_NAME} STREQUAL iOS)
+    add_library(Improc STATIC ${SRC_FILES})
+    target_include_directories(Improc PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/opencv2.framework)
+else ()
+    add_executable(Improc ${SRC_FILES})
+    find_package(OpenCV 4.5.3 REQUIRED)
+    target_link_libraries(Improc PUBLIC ${OpenCV_LIBS})
+endif ()
+
 target_compile_features(Improc PUBLIC cxx_std_17)
