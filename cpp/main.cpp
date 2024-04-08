@@ -33,7 +33,7 @@ int main()
 
     FastSAMPostProcessor fSAM;
     
-    auto results = fSAM.process(img.ptr(), values1.data(), values2.data());
+    auto results = fSAM.process(values1.data(), values2.data());
     cv::Mat mask = fSAM.point_prompt(results, {cv::Point(img.cols / 2, img.rows / 2)}, {1});
     fSAM.visualize(img, results);
     cv::imshow("point promt", mask);

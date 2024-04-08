@@ -39,13 +39,12 @@ public:
         img_size = cv::Size(img_width, img_height);
     }
 
-    SAMResults process(unsigned char* img_ptr, float* preds_ptr, float* protos_ptr)
+    SAMResults process(float* preds_ptr, float* protos_ptr)
     {
-        cv::Mat img(img_size, CV_8UC3, img_ptr);
         cv::Mat preds(2, preds_size, CV_32F, preds_ptr);
         cv::Mat protos(2, protos_size, CV_32F, protos_ptr);
 
-        cv::Mat nms_result = _segment_nms(preds, img.size());
+        cv::Mat nms_result = _segment_nms(preds, img_size);
 
         int n_boxes = nms_result.size[1];
         cv::Mat masks_coeff = nms_result(cv::Rect(0, 5, n_boxes, 32));
@@ -53,8 +52,8 @@ public:
 
         cv::Mat masks = sigmoid(masks_coeff.t() * protos);
 
-        SAMResults results = _crop_and_scale_masks(masks, boxes, img.size(), mask_size);
-
+        SAMResults results = _crop_and_scale_masks(masks, boxes, img_size, mask_size);
+        
         return results;
     }
 
@@ -69,6 +68,10 @@ public:
         {
             if (one_mask.empty())
                 one_mask = cv::Mat::zeros(mask.size(), CV_8UC1);
+            
+            std::cout <<box << ' ' << box.area() / (float)(mask.rows*mask.cols) << std::endl;
+            if (box.area() / (float)(mask.rows*mask.cols) > 0.5)
+                continue;
 
             for (int i=0; i<points.size(); i++)
             {
