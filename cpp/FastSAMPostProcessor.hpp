@@ -69,7 +69,7 @@ public:
             if (one_mask.empty())
                 one_mask = cv::Mat::zeros(mask.size(), CV_8UC1);
             
-            std::cout <<box << ' ' << box.area() / (float)(mask.rows*mask.cols) << std::endl;
+            // std::cout <<box << ' ' << box.area() / (float)(mask.rows*mask.cols) << std::endl;
             if (box.area() / (float)(mask.rows*mask.cols) > 0.5)
                 continue;
 

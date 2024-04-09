@@ -20,11 +20,11 @@ public class FastSAM : MonoBehaviour
                         IntPtr preds, IntPtr protos, Vector2Int[] points, int[] points_label, int point_size);
 #endif
 
-    public event EventHandler<IntPtr> OnRequestDone;
+    public event EventHandler<(byte[], int, int)> OnRequestDone;
 
     private float[] preds = new float[37*6300];
     private float[] protos = new float[32*120*160];
-
+    private int mask_width = 480, mask_height = 640;
 
     private bool detecting = false;
 
@@ -53,8 +53,10 @@ public class FastSAM : MonoBehaviour
 
         if (success)
             maskPtr = PointPrompts(width, height, point);
-            
-        OnRequestDone?.Invoke(this, maskPtr);
+        
+        byte[] mask=new byte[mask_width * mask_height];
+        Marshal.Copy(maskPtr, mask, 0, mask_width * mask_height);
+        OnRequestDone?.Invoke(this, (mask, mask_width, mask_height));
         Marshal.FreeHGlobal(maskPtr);
 #endif
 
@@ -66,7 +68,7 @@ public class FastSAM : MonoBehaviour
         IntPtr predsPtr = IntPtr.Zero, protosPtr = IntPtr.Zero, maskPtr = IntPtr.Zero;
         Vector2Int[] pts = new Vector2Int[1];
         int[] ptLabels = new int[1];
-        pts[0] = new Vector2Int((int)(point.x * 480), (int)(point.y * 640));
+        pts[0] = new Vector2Int((int)(point.x * mask_width), (int)(point.y * mask_height));
         ptLabels[0] = 1;
 
         unsafe {
@@ -74,6 +76,6 @@ public class FastSAM : MonoBehaviour
             fixed (float* p = protos) { protosPtr = (IntPtr)p; }
         }
         
-        return FastSAMWithPoints(480, 640, predsPtr, protosPtr, pts, ptLabels, 1);
+        return FastSAMWithPoints(mask_width, mask_height, predsPtr, protosPtr, pts, ptLabels, 1);
     }
 }

@@ -8,12 +8,19 @@ extern "C" unsigned char* detectEdge(unsigned char* rgb, int width, int height, 
     o_height = height / 3;
     
     cv::resize(rgb_mat, rgb_mat, cv::Size(o_width, o_height));
-               
+    
     unsigned char* edge = new unsigned char[o_width * o_height];
-    cv::Mat edge_mat(o_height, o_width, CV_8UC1, edge);
+    cv::Mat edge_mat;
     
     cv::Canny(rgb_mat, edge_mat, 50, 150);
-    
+
+    int temp = o_width;
+    o_width = o_height;
+    o_height = temp;
+
+    cv::Mat final_edge_mat(o_height, o_width, CV_8UC1, edge);
+    cv::flip(edge_mat.t(), final_edge_mat, 1);
+
     return edge;
 }
 
