@@ -31,4 +31,13 @@ This repo is one example of using image processing in mobile AR application with
 1. Switch platform into iOS in Build Settings
 2. Build and Run SampleScene in Build Settings
 3. After Xcode project is generated, change Signing and Bundle identifier of tartget Unity-iPhone in Signing & Capabilities settings
+<br/><br>
 
+## Provided features
+- Detect edge
+- FastSAM (testing with iPhone 15 Pro Max)
+    - Model loading time : about 900ms when first inference is executed
+    - Model inference time
+        | | inference | copy array | postprocess(NMS, point prompts) | sum |
+        |---|---|---|---|---|
+        | time(ms) | 15~20 | 1~2 | 20~50 | 36~72 |
