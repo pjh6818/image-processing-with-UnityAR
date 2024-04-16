@@ -28,7 +28,7 @@ public class FastSAM : MonoBehaviour
 
     private bool detecting = false;
 
-    public void RequestAsync(IntPtr rgb, int width, int height, bool withAlpha, Vector2 point)
+    public void RequestAsync(IntPtr rgb, int width, int height, bool withAlpha, Vector2[] points)
     {
         if (detecting)
             return;
@@ -36,10 +36,10 @@ public class FastSAM : MonoBehaviour
         if (rgb == IntPtr.Zero)
             return;
         
-        StartCoroutine(Request(rgb, width, height, withAlpha, point));
+        StartCoroutine(Request(rgb, width, height, withAlpha, points));
     }
 
-    IEnumerator Request(IntPtr bufPtr, int width, int height, bool withAlpha, Vector2 point)
+    IEnumerator Request(IntPtr bufPtr, int width, int height, bool withAlpha, Vector2[] points)
     {
         detecting = true;
 
@@ -52,7 +52,7 @@ public class FastSAM : MonoBehaviour
         IntPtr maskPtr = IntPtr.Zero;
 
         if (success)
-            maskPtr = PointPrompts(width, height, point);
+            maskPtr = PointPrompts(width, height, points);
         
         byte[] mask=new byte[mask_width * mask_height];
         Marshal.Copy(maskPtr, mask, 0, mask_width * mask_height);
@@ -63,19 +63,24 @@ public class FastSAM : MonoBehaviour
         detecting = false;
     }
 
-    IntPtr PointPrompts(int width, int height, Vector2 point)
+    IntPtr PointPrompts(int width, int height, Vector2[] points)
     {
         IntPtr predsPtr = IntPtr.Zero, protosPtr = IntPtr.Zero, maskPtr = IntPtr.Zero;
-        Vector2Int[] pts = new Vector2Int[1];
-        int[] ptLabels = new int[1];
-        pts[0] = new Vector2Int((int)(point.x * mask_width), (int)(point.y * mask_height));
-        ptLabels[0] = 1;
+        Vector2Int[] pts = new Vector2Int[points.Length];
+        int[] ptLabels = new int[points.Length];
+
+        for (int i=0; i<points.Length; i++)
+        {
+            var point = points[i];
+            pts[0] = new Vector2Int((int)(point.x * mask_width), (int)(point.y * mask_height));
+            ptLabels[0] = 1;
+        }
 
         unsafe {
             fixed (float* p = preds) { predsPtr = (IntPtr)p; }
             fixed (float* p = protos) { protosPtr = (IntPtr)p; }
         }
         
-        return FastSAMWithPoints(mask_width, mask_height, predsPtr, protosPtr, pts, ptLabels, 1);
+        return FastSAMWithPoints(mask_width, mask_height, predsPtr, protosPtr, pts, ptLabels, pts.Length);
     }
 }

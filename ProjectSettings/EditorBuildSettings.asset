@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/ImageProcessingInAR.unity
+  - enabled: 0
+    path: Assets/Scenes/DetectEdgeSample.unity
     guid: 021f48cbebb4247d6aabc0fe9bf156e0
+  - enabled: 1
+    path: Assets/Scenes/FastSAMSample.unity
+    guid: 96c7ea81d45944141bf58cb0bb62d3c6
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 6ee72d15cf39dd748a13eac57397b9af,
       type: 2}
