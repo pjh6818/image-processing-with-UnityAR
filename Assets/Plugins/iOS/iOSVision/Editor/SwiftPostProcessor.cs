@@ -41,7 +41,60 @@ public static class SwiftPostProcessor
 
             proj.AddBuildProperty(proj.TargetGuidByName("GameAssembly"), "COREML_CODEGEN_LANGUAGE", "None");
 
+            string rootFolder = "/Assets";//"/Packages";
+            var unityFrameworkGuid = proj.GetUnityFrameworkTargetGuid();
+
+            var resourceTarget = proj.GetResourcesBuildPhaseByTarget(unityFrameworkGuid);
+            var ModelPath = Directory.GetCurrentDirectory() + rootFolder + "/Plugins/iOS/iOSVision/Source/FastSAM-s.mlpackage";
+            var xcodeTarget = "/Libraries/Plugins/iOS/iOSVision/Source/FastSAM-s.mlpackage";
+            var copyTarget = buildPath + xcodeTarget;
+            
+            CopyDirectory(ModelPath, copyTarget, true);
+
+            var fileGUID = proj.AddFile(copyTarget, xcodeTarget);
+            
+            proj.RemoveFileFromBuild(unityFrameworkGuid, fileGUID);
+            proj.AddFileToBuildSection(unityFrameworkGuid, resourceTarget, fileGUID);
+
             proj.WriteToFile(projPath);
+        }
+    }
+    
+    static void CopyDirectory(string sourceDir, string destinationDir, bool recursive)
+    {
+        // Get information about the source directory
+        var dir = new DirectoryInfo(sourceDir);
+
+        // Check if the source directory exists
+        if (!dir.Exists)
+            throw new DirectoryNotFoundException($"Source directory not found: {dir.FullName}");
+
+        if(Directory.Exists(destinationDir))
+        {
+            Directory.Delete(destinationDir, true);
+        }
+
+        // Cache directories before we start copying
+        DirectoryInfo[] dirs = dir.GetDirectories();
+
+        // Create the destination directory
+        Directory.CreateDirectory(destinationDir);
+
+        // Get the files in the source directory and copy to the destination directory
+        foreach (FileInfo file in dir.GetFiles())
+        {
+            string targetFilePath = Path.Combine(destinationDir, file.Name);
+            file.CopyTo(targetFilePath);
+        }
+
+        // If recursive and copying subdirectories, recursively call this method
+        if (recursive)
+        {
+            foreach (DirectoryInfo subDir in dirs)
+            {
+                string newDestinationDir = Path.Combine(destinationDir, subDir.Name);
+                CopyDirectory(subDir.FullName, newDestinationDir, true);
+            }
         }
     }
 }

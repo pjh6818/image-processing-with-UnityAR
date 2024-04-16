@@ -7,3 +7,4 @@ xcodebuild \
     -destination generic/platform=iOS \
     -configuration MinSizeRel 
 cp ./lib/MinSizeRel/*.a ../../Assets/Plugins/iOS/
+cp -r ../opencv2.framework ../../Assets/Plugins/iOS/opencv2.framework
