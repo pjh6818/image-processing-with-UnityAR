@@ -16,7 +16,7 @@ extension NSLock {
     }
 }
 
-@available(iOS 15.0, *)
+@available(iOS 16.0, *)
 @objc public class FastSAM : NSObject {
     
     @objc public static let shared = FastSAM()
@@ -25,9 +25,12 @@ extension NSLock {
     
     private var retainedBuffer: CVPixelBuffer?
     
-    @objc public var protoBuffer: [Float32] = []
-    @objc public var predBuffer: [Float32] = []
+    private var start: CFAbsoluteTime = 0
+    private var end: CFAbsoluteTime = 0
     
+    @objc public var preds: MLMultiArray?
+    @objc public var protos: MLMultiArray?
+
     let initLock = NSLock()
     @objc public var Init: Bool {
         get { initLock.sync { predictionRequest != nil} }
@@ -70,6 +73,7 @@ extension NSLock {
     }
 
     @objc public func startDetection(buffer: CVPixelBuffer, orientation: CGImagePropertyOrientation) -> Bool {
+        start = CFAbsoluteTimeGetCurrent()
         self.detected = false
         self.retainedBuffer = buffer
         
@@ -96,22 +100,13 @@ extension NSLock {
             self.Success = false
             return
         }
-
+        end = CFAbsoluteTimeGetCurrent()
+        print("model inference time ", end - start)
+        
         if let predictions = request.results as?
             [VNCoreMLFeatureValueObservation] {
-            let preds = predictions[0].featureValue.multiArrayValue
-            let protos = predictions[1].featureValue.multiArrayValue
-            
-            let predsLength = preds?.count
-            let protosLength = protos?.count
-            
-            for i in 0...predsLength! - 1 {
-                predBuffer.append(preds![i].floatValue)
-            }
-            for i in 0...protosLength! - 1 {
-                protoBuffer.append(protos![i].floatValue)
-            }
-
+            preds = predictions[0].featureValue.multiArrayValue
+            protos = predictions[1].featureValue.multiArrayValue
             self.Success = true
         } else {
             self.Success = false
@@ -121,7 +116,7 @@ extension NSLock {
     }
     
     @objc public func reset() {
-        protoBuffer.removeAll()
-        predBuffer.removeAll()
+        preds = nil
+        protos = nil
     }
 }

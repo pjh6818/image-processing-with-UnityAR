@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreML/CoreML.h>
 #include "UnityFramework/UnityFramework-Swift.h"
 
 CVPixelBufferRef pixelBufferFromRGBBuffer(intptr_t ptr, int width, int height, bool with_alpha) {
@@ -64,9 +65,7 @@ extern "C" {
         if (!ptr)
             return false;
         
-        if (@available(iOS 15.0, *)) {
-            [[FastSAM shared] reset];
-            
+        if (@available(iOS 16.0, *)) {
             CVPixelBufferRef pixelFrameBufferCopy = pixelBufferFromRGBBuffer(ptr, width, height, with_alpha);
             
             bool success = [[FastSAM shared] startDetectionWithBuffer:pixelFrameBufferCopy orientation:(CGImagePropertyOrientation)6];
@@ -79,7 +78,7 @@ extern "C" {
     }
 
     bool isFastSAMDone(){
-        if (@available(iOS 15.0, *)) {
+        if (@available(iOS 16.0, *)) {
             return [[FastSAM shared] Detected];
         }
         
@@ -87,23 +86,50 @@ extern "C" {
     }
 
     bool getFastSAMResult(float* preds, float* protos){
-        if (@available(iOS 15.0, *)){
+        if (@available(iOS 16.0, *)){
             if (![[FastSAM shared] Success])
                 return false;
             
-            NSArray* array_pred = [[FastSAM shared] predBuffer];
-            NSArray* array_proto = [[FastSAM shared] protoBuffer];
+            clock_t start = clock();
             
-    
-            for (int i = 0; i < 37*6300; i++){
-                float f = [[array_pred objectAtIndex:i] floatValue];
-                preds[i] = f;
-            }
+            MLMultiArray *predArray = [[FastSAM shared] preds];
+            MLMultiArray *protoArray = [[FastSAM shared] protos];
             
-            for (int i=0; i<32*120*160; i++){
-                float f = [[array_proto objectAtIndex:i] floatValue];
-                protos[i] = f;
-            }
+            [predArray getBytesWithHandler:^(const void *bytes, NSInteger size) {
+                const float *buffer = (const float *)bytes;
+
+                const int diff = predArray.strides[1].intValue - predArray.shape[2].intValue;
+                const int dim1 = predArray.shape[1].intValue;
+                const int dim2 = predArray.shape[2].intValue;
+                
+                for (int i=0; i<dim1; i++) {
+                    for (int j=0; j<dim2; j++) {
+                        int idx = i * dim2 + j;
+                        preds[idx] = buffer[idx + i * diff];
+                    }
+                }
+             }];
+            
+            [protoArray getBytesWithHandler:^(const void *bytes, NSInteger size) {
+                const float *buffer = (const float *)bytes;
+
+                const int diff = protoArray.strides[2].intValue - protoArray.shape[3].intValue;
+                const int dim1 = protoArray.shape[1].intValue;
+                const int dim2 = protoArray.shape[2].intValue;
+                const int dim3 = protoArray.shape[3].intValue;
+                
+                for (int i=0; i<dim1; i++) {
+                    for (int j=0; j<dim2; j++) {
+                        for (int k=0; k<dim3; k++) {
+                            int idx = i * dim2 * dim3 + j * dim3 + k;
+                            protos[idx] = buffer[idx + (i * dim2 + j) * diff];
+                        }
+                    }
+                }
+             }];
+
+            clock_t end = clock();
+            printf("result copy time %7f\n", (float)(end-start) / CLOCKS_PER_SEC);
             
             return true;
         }
