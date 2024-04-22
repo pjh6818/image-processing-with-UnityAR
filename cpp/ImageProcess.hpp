@@ -25,22 +25,26 @@ extern "C" unsigned char* detectEdge(unsigned char* rgb, int width, int height, 
 }
 
 extern "C" unsigned char* FastSAMWithPoints(int img_width, int img_height, 
-                        float* preds, float* protos, cv::Point* points, int* points_label, int point_size)
+                        float* preds, float* protos, cv::Point2f* points, int* points_label, int point_size)
 {
     if (preds == nullptr || protos == nullptr)
         return nullptr;
 
     clock_t start = clock();
-    FastSAMPostProcessor fSAM(img_width, img_height);
+    FastSAMPostProcessor fSAM;
     auto results = fSAM.process(preds, protos);
+    if (results.size() <= 0)
+        return nullptr;
+
     unsigned char* mask = new unsigned char[img_width * img_height];
     cv::Mat mask_mat(img_height, img_width, CV_8UC1, mask);
 
-    std::vector<cv::Point> pts(points, points + point_size);
+    std::vector<cv::Point2f> pts(points, points + point_size);
     std::vector<int> pts_label(points_label, points_label + point_size);
-
     cv::Mat point_mask = fSAM.point_prompt(results, pts, pts_label);
-    cv::copyTo(point_mask, mask_mat, cv::noArray());
+    cv::resize(point_mask, mask_mat, cv::Size(img_width, img_height), 0.0, 0.0, cv::INTER_LINEAR);
+    cv::flip(mask_mat, mask_mat, 0);
+
     clock_t end = clock();
     printf("post processing time %7f\n", (float)(end - start)/CLOCKS_PER_SEC);
     return mask;

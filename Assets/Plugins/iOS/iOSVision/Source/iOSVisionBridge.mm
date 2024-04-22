@@ -68,7 +68,7 @@ extern "C" {
         if (@available(iOS 16.0, *)) {
             CVPixelBufferRef pixelFrameBufferCopy = pixelBufferFromRGBBuffer(ptr, width, height, with_alpha);
             
-            bool success = [[FastSAM shared] startDetectionWithBuffer:pixelFrameBufferCopy orientation:(CGImagePropertyOrientation)6];
+            bool success = [[FastSAM shared] startDetectionWithBuffer:pixelFrameBufferCopy orientation:(CGImagePropertyOrientation)1];
             
             if (pixelFrameBufferCopy != nil)
                 CVPixelBufferRelease(pixelFrameBufferCopy);

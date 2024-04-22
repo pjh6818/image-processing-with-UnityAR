@@ -47,6 +47,10 @@ public:
         cv::Mat nms_result = _segment_nms(preds, img_size);
 
         int n_boxes = nms_result.size[1];
+
+        if (n_boxes == 0)
+            return SAMResults();
+
         cv::Mat masks_coeff = nms_result(cv::Rect(0, 5, n_boxes, 32));
         cv::Mat boxes = nms_result(cv::Rect(0, 0, n_boxes, 4));
 
@@ -57,13 +61,17 @@ public:
         return results;
     }
 
-    cv::Mat point_prompt(SAMResults& results, std::vector<cv::Point> points, std::vector<int> points_label)
+    cv::Mat point_prompt(SAMResults& results, std::vector<cv::Point2f> points, std::vector<int> points_label)
     {
         assert(points.size() == points_label.size());
         assert(results.size() > 0);
 
         cv::Mat one_mask;
-        
+        std::vector<cv::Point> pts(points.size());
+        std::transform(points.begin(), points.end(), pts.begin(), [this](cv::Point2f& pt){
+            return cv::Point(pt.x * img_size.width, pt.y * img_size.height);
+        });
+
         for (auto [mask, box] : results)
         {
             if (one_mask.empty())
@@ -73,11 +81,11 @@ public:
             if (box.area() / (float)(mask.rows*mask.cols) > 0.5)
                 continue;
 
-            for (int i=0; i<points.size(); i++)
+            for (int i=0; i<pts.size(); i++)
             {
-                if (mask.at<unsigned char>(points[i]) == 255 && points_label[i] == 1)
+                if (mask.at<unsigned char>(pts[i]) == 255 && points_label[i] == 1)
                     one_mask += (mask / 255);
-                if (mask.at<unsigned char>(points[i]) == 255 && points_label[i] == 0)
+                if (mask.at<unsigned char>(pts[i]) == 255 && points_label[i] == 0)
                     one_mask -= (mask / 255);
             }
         }

@@ -16,6 +16,40 @@ public class ARCameraImage : MonoBehaviour
         set => m_CameraManager = value;
     }
 
+    [SerializeField]
+    ARCameraBackground m_CameraBackground;
+
+    public ARCameraBackground cameraBackground
+    {
+        get => m_CameraBackground;
+        set => m_CameraBackground = value;
+    }
+
+    public byte[] GetRGBFromRenderTexture(out int width, out int height)
+    {
+        width = Screen.width / 2;
+        height = Screen.height / 2;
+
+        RenderTexture renderTexture = RenderTexture.GetTemporary(width, height, 24);
+        Graphics.Blit(null, renderTexture, m_CameraBackground.material);
+
+        Texture2D texture2D = new Texture2D(renderTexture.width, renderTexture.height, TextureFormat.RGB24, false);
+
+        // Read the pixels from the RenderTexture
+        var temp = RenderTexture.active;
+        RenderTexture.active = renderTexture;
+
+        texture2D.ReadPixels(new Rect(0, 0, renderTexture.width, renderTexture.height), 0, 0);
+        texture2D.Apply();
+
+        // Reset the active RenderTexture
+        RenderTexture.active = temp;
+        RenderTexture.ReleaseTemporary(renderTexture);
+
+        return texture2D.GetRawTextureData();
+    }
+
+
     public unsafe byte[] GetRGB(out int width, out int height)
     {
         width = height = -1;
