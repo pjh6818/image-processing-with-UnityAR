@@ -13,29 +13,11 @@ public class FastSAMInARSample : MonoBehaviour
     [SerializeField]
     ARCameraImage m_ArCameraImage;
 
-    public ARCameraImage arCameraImage
-    {
-        get => m_ArCameraImage;
-        set => m_ArCameraImage = value;
-    }
-
     [SerializeField]
     RawImage m_MaskImage;
 
-    public RawImage maskImage
-    {
-        get => m_MaskImage;
-        set => m_MaskImage = value;
-    }
-
     [SerializeField]
     Button m_FastSAMProcessButton;
-
-    public Button FastSAMProcessButton
-    {
-        get => m_FastSAMProcessButton;
-        set => m_FastSAMProcessButton = value;
-    }
 
     [SerializeField]
     GameObject pointPrefab;
@@ -43,12 +25,27 @@ public class FastSAMInARSample : MonoBehaviour
     [SerializeField]
     Canvas canvas;
 
-    public RawImage tempImage;
+    [SerializeField]
+    Button m_AddPointButton;
+
+    [SerializeField]
+    Button m_DeletePointButton;
+
+    [SerializeField]
+    ShineEffect shineEffect;
+
+    [SerializeField]
+    RawImage m_CaptureImage;
+
+    [SerializeField]
+    Button m_BackButton;
 
     void OnEnable()
     {
-        if (m_FastSAMProcessButton != null)
-            m_FastSAMProcessButton.onClick.AddListener(OnClickFastSAMProcessButton);
+        m_AddPointButton?.onClick.AddListener(OnClickAddPointButton);
+        m_DeletePointButton?.onClick.AddListener(OnClickDeletePointButton);
+        m_FastSAMProcessButton?.onClick.AddListener(OnClickFastSAMProcessButton);
+        m_BackButton?.onClick.AddListener(OnClickBackButton);
 
         if (fastSAM == null)
             fastSAM = GetComponent<FastSAM>();
@@ -59,20 +56,22 @@ public class FastSAMInARSample : MonoBehaviour
 
     void OnDisable()
     {
-        if (m_FastSAMProcessButton != null)
-            m_FastSAMProcessButton.onClick.RemoveListener(OnClickFastSAMProcessButton);
+        m_AddPointButton?.onClick.RemoveListener(OnClickAddPointButton);
+        m_DeletePointButton?.onClick.RemoveListener(OnClickDeletePointButton);
+        m_FastSAMProcessButton.onClick.RemoveListener(OnClickFastSAMProcessButton);
+        m_BackButton?.onClick.RemoveListener(OnClickBackButton);
 
         if (fastSAM != null)
             fastSAM.OnRequestDone -= OnFastSAMDone;
     }
 
-    public void OnClickAddPointButton()
+    void OnClickAddPointButton()
     {
         var point = Instantiate(pointPrefab, canvas.transform);
         pointMarkers.Add(point);
     }
 
-    public void OnClickDeletePointButton()
+    void OnClickDeletePointButton()
     {
         foreach (var obj in pointMarkers)
         {
@@ -86,9 +85,9 @@ public class FastSAMInARSample : MonoBehaviour
         if (fastSAM == null)
             return;
 
-        // UpdateRawImage(ref tempTex, ref tempImage, m_ArCameraImage.GetRGBFromRenderTexture(), Screen.width / 4, Screen.height / 4, TextureFormat.RGB24);
-
         byte[] image = m_ArCameraImage.GetRGBFromRenderTexture(out int width, out int height);
+        UpdateTexture(ref m_RGBTexture, image, width, height, TextureFormat.RGB24);
+
         IntPtr imagePtr = IntPtr.Zero;
         unsafe
         {
@@ -111,24 +110,67 @@ public class FastSAMInARSample : MonoBehaviour
         watch.Reset();
 
         if (mask.Item1 != null)
-            UpdateRawImage(ref m_MaskTexture, ref m_MaskImage, mask.Item1, mask.Item2, mask.Item3, TextureFormat.R8);
+        {
+            UpdateTexture(ref m_MaskTexture, mask.Item1, mask.Item2, mask.Item3, TextureFormat.R8);
+            m_MaskImage.texture = m_MaskTexture;
+
+            ShowCaptureImage();
+        }
     }
 
-    void UpdateRawImage(ref Texture2D tex, ref RawImage image, byte[] buf, int width, int height, TextureFormat textureFormat)
+    void ShowCaptureImage()
+    {
+        // m_MaskImage.gameObject.SetActive(false);
+        m_AddPointButton.gameObject.SetActive(false);
+        m_DeletePointButton.gameObject.SetActive(false);
+        m_FastSAMProcessButton.gameObject.SetActive(false);
+
+        foreach (var obj in pointMarkers)
+            obj.SetActive(false);
+        
+        m_CaptureImage.gameObject.SetActive(true);
+        m_BackButton.gameObject.SetActive(true);
+        shineEffect.gameObject.SetActive(true);
+
+        m_CaptureImage.texture = m_RGBTexture;
+        shineEffect.LoadMaskTexture(m_MaskTexture);
+        shineEffect.startShine();
+    }
+
+    public void OnClickBackButton()
+    {
+        shineEffect.stopShine();
+
+        m_CaptureImage.gameObject.SetActive(false);
+        m_BackButton.gameObject.SetActive(false);
+        shineEffect.gameObject.SetActive(false);
+
+        foreach (var obj in pointMarkers)
+            obj.SetActive(true);
+
+        // m_MaskImage.gameObject.SetActive(true);
+        m_AddPointButton.gameObject.SetActive(true);
+        m_DeletePointButton.gameObject.SetActive(true);
+        m_FastSAMProcessButton.gameObject.SetActive(true);
+    }
+
+    void UpdateTexture(ref Texture2D tex, byte[] buf, int width, int height, TextureFormat textureFormat)
     {
         if (tex == null)
             tex = new Texture2D(width, height, textureFormat, false);
         
+        if (buf == null)
+            return;
+
         tex.LoadRawTextureData(buf);
         tex.Apply();
-
-        image.texture = tex;
     }
 
     FastSAM fastSAM;
 
     List<GameObject> pointMarkers = new List<GameObject>();
     Texture2D m_MaskTexture;
-    Texture2D tempTex;
+    Texture2D m_RGBTexture;
+
     Stopwatch watch = new Stopwatch();
 }

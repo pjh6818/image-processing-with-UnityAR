@@ -27,8 +27,8 @@ public class ARCameraImage : MonoBehaviour
 
     public byte[] GetRGBFromRenderTexture(out int width, out int height)
     {
-        width = Screen.width / 2;
-        height = Screen.height / 2;
+        width = Screen.width;
+        height = Screen.height;
 
         RenderTexture renderTexture = RenderTexture.GetTemporary(width, height, 24);
         Graphics.Blit(null, renderTexture, m_CameraBackground.material);
