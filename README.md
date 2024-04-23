@@ -1,6 +1,13 @@
 # Image Processing with Unity AR
-This repo is one example of using image processing in mobile AR application with Unity AR Foundation. It contains how to build C++ library linking with image processing library like OpenCV and how to use the C++ library in Unity in iOS and Android platform.
-<br/><br>
+This repo is one example of using image processing in mobile AR application with Unity AR Foundation. It contains how to build C++ library linking with image processing library like OpenCV and how to use the C++ library in Unity in iOS platform.
+
+
+<div align="center">
+    <img src="samples/FastSAM-example1.gif" alt="Segmentation example1">
+    <img src="samples/FastSAM-example2.gif" alt="Segmentation example2">
+</div>
+
+Above video is the example of segmentation implemented in Unity AR and iPhone.
 
 ## Test Environment
 - Unity Editor 2022.3.22f1
@@ -9,6 +16,16 @@ This repo is one example of using image processing in mobile AR application with
 - OpenCV 4.9.0
 - iPhone 15 Pro Max
 <br/><br>
+
+## Provided features
+- Detect edge
+- Segmentation with FastSAM
+    - Test device : iPhone 15 Pro Max, model input resolution : 640x480
+    - Model loading time : about 900ms when first inference is executed
+    - Model inference time
+        | | inference | copy array | postprocess(NMS, point prompts) | sum |
+        |---|---|---|---|---|
+        | time(ms) | 15~20 | 1~2 | 20~50 | 36~72 |
 
 ## Build C++ library
 ### iOS
@@ -32,12 +49,3 @@ This repo is one example of using image processing in mobile AR application with
 2. Build and Run SampleScene in Build Settings
 3. After Xcode project is generated, change Signing and Bundle identifier of tartget Unity-iPhone in Signing & Capabilities settings
 <br/><br>
-
-## Provided features
-- Detect edge
-- FastSAM (testing with iPhone 15 Pro Max)
-    - Model loading time : about 900ms when first inference is executed
-    - Model inference time
-        | | inference | copy array | postprocess(NMS, point prompts) | sum |
-        |---|---|---|---|---|
-        | time(ms) | 15~20 | 1~2 | 20~50 | 36~72 |
